@@ -26,7 +26,7 @@ class VerifyAccount
     	// Let's store the amount received from the customer
         $curl = curl_init();
         curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.paystack.co/bank/resolve?account_number=".$accountNumber."&bank_code=.$bankCode.",
+        CURLOPT_URL => "https://api.paystack.co/bank/resolve?account_number=".$accountNumber."&bank_code=$bankCode",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
@@ -39,7 +39,7 @@ class VerifyAccount
             ),
         ));
         $response = curl_exec($curl);
-       
+
         $err = curl_error($curl);
         
         curl_close($curl);
