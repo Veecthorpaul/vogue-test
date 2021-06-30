@@ -19,12 +19,13 @@ class TransferRecepient
     public function execute($response, $data)
     {  
         $url = "https://api.paystack.co/transferrecipient";
+        $bankCode = $data['bank_code'];
         $fields = [
           "type" => "nuban",
           "name" => $response['data']['account_name'],
           "description" => "Enjoy Yourself",
           "account_number" => $response['data']['account_number'],
-          "bank_code" => "057",
+          "bank_code" => $bankCode,
           "currency" => "NGN"
         ];
         $fields_string = http_build_query($fields);
